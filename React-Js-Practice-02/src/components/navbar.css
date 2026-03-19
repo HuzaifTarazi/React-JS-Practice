@@ -1,0 +1,15 @@
+.navbar > ul {
+    color: white;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar > ul > li {
+    border-radius: 3px;
+    padding:  10px;
+    background-color:  red;
+}
