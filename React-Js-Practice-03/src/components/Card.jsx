@@ -4,7 +4,6 @@ const Card = ({ userName, age, img }) => {
   return (
     <div className="card">
       <img src={img} alt="elt" />
-
       <h1>
         {userName}, {age}
       </h1>
