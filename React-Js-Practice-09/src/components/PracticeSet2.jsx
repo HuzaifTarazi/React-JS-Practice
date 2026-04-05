@@ -35,7 +35,7 @@ const PracticeSet2 = () => {
 
   return (
     <div className="w-1/4">
-      <h2 className="py-3">Practice Set - 2</h2>
+      <h2 className="py-1">Practice Set - 2</h2>
       <input
         onChange={fetchUserData}
         type="text"
