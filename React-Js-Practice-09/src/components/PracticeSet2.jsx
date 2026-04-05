@@ -20,7 +20,7 @@ const PracticeSet2 = () => {
       console.log(apiStorage);
     } catch (err) {
       console.error("Error..!" + err);
-    } finally { 
+    } finally {
       setLoading(false);
     }
   };
