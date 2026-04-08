@@ -48,7 +48,7 @@ const TaskForm = () => {
 
     const {title, desc, priority, duedate} = taskListData
 
-    console.log(title)
+    console.log(title, desc, priority, duedate)
   };
 
   return (
