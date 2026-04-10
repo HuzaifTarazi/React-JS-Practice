@@ -5,17 +5,9 @@ import TasksList from "./TasksList";
 const TaskForm = () => {
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDesc, setDesc] = useState("");
-  const [taskPriority, setPriority] = useState("");
+  const [taskPriority, setPriority] = useState("High");
   const [taskDueDate, setDueDate] = useState("");
-
-  class TaskManager {
-    constructor(title, desc, priority, duedate) {
-      this.title = title;
-      this.desc = desc;
-      this.priority = priority;
-      this.duedate = duedate;
-    }
-  }
+  const [objArr, setObjArr] = useState([]);
 
   const getFormData = (e) => {
     const { id, value } = e.target;
@@ -39,16 +31,14 @@ const TaskForm = () => {
   const formChange = (e) => {
     e.preventDefault();
 
-    const taskListData = new TaskManager(
-      taskTitle,
-      taskDesc,
-      taskPriority,
-      taskDueDate,
-    );
+    const taskListData = {
+      title: taskTitle,
+      desc: taskDesc,
+      priority: taskPriority,
+      duedate: taskDueDate,
+    };
 
-    const {title, desc, priority, duedate} = taskListData
-
-    console.log(title, desc, priority, duedate)
+    setObjArr([...objArr, taskListData]);
   };
 
   return (
@@ -124,8 +114,9 @@ const TaskForm = () => {
       </div>
 
       <TaskStatus />
-
-      <TasksList />
+      <div className="border p-3  w-4xl text-center bg-gray-300 rounded ">
+        {objArr.map((element,idx)=> <TasksList key={idx} id={idx} useArr={objArr}  SetObjArr={setObjArr} title={element.title} desc={element.desc} priority={element.priority} dueDate={element.duedate}/>)}
+      </div>
     </div>
   );
 };
