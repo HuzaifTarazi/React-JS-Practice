@@ -8,6 +8,7 @@ const TaskForm = () => {
   const [taskPriority, setPriority] = useState("High");
   const [taskDueDate, setDueDate] = useState("");
   const [objArr, setObjArr] = useState([]);
+  
 
   const getFormData = (e) => {
     const { id, value } = e.target;
@@ -36,9 +37,11 @@ const TaskForm = () => {
       desc: taskDesc,
       priority: taskPriority,
       duedate: taskDueDate,
+      status: false,
     };
 
     setObjArr([...objArr, taskListData]);
+    console.log(objArr)
   };
 
   return (
@@ -113,9 +116,22 @@ const TaskForm = () => {
         </form>
       </div>
 
-      <TaskStatus />
+      <TaskStatus objArr={objArr} filterData={objArr.filter(element => element.status === true)} />
+
       <div className="border p-3  w-4xl text-center bg-gray-300 rounded ">
-        {objArr.map((element,idx)=> <TasksList key={idx} id={idx} useArr={objArr}  SetObjArr={setObjArr} title={element.title} desc={element.desc} priority={element.priority} dueDate={element.duedate}/>)}
+        {objArr.map((element, idx) => (
+          <TasksList
+            key={idx}
+            id={idx}
+            useArr={objArr}
+            SetObjArr={setObjArr}
+            title={element.title}
+            desc={element.desc}
+            priority={element.priority}
+            dueDate={element.duedate}
+
+          />
+        ))}
       </div>
     </div>
   );
